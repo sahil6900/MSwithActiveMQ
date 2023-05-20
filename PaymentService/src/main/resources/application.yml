@@ -1,0 +1,40 @@
+server:
+  port: 7172
+
+spring:
+  application:
+    name: payment-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/ActiveMQMSDemo?createDatabaseIfNotExist=true
+    username: root
+    password: 112296root
+  activemq:
+    broker-url: tcp://localhost:61616
+    user: admin
+    password: admin
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: true
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      default-zone: http://localhost:8761/eureka
+    fetch-registry: true
+    register-with-eureka: true
+
+logging:
+  level:
+    org:
+      hibernate:
+        sql: trace
+        type: debug
+
+
+

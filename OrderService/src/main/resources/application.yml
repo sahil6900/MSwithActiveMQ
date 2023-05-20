@@ -1,0 +1,36 @@
+server:
+  port: 7171
+spring:
+  application:
+    name: order-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/ActiveMQMSDemo?createDatabaseIfNotExist=true
+    username: root
+    password: 112296root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+  activemq:
+    broker-url: tcp://localhost:61616
+    user: admin
+    password: admin
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      default-zone: http://localhost:8761/eureka
+logging:
+  level:
+    org:
+      hibernate:
+        sql: trace
+        type: debug
